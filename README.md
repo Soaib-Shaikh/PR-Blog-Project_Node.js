@@ -65,7 +65,7 @@ Deploy Link:-
 │ ├── /pages
 │ │ ├── /blog # Blog related views
 │ │ └── /writer # Writer views
-├── app.js # Main Express app setup and entry point
+├── index.js # Main Express app setup and entry point
 ├── package.json # Node dependencies and scripts
 └── README.md # This file
 
