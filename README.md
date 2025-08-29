@@ -74,8 +74,7 @@ Deploy Link:-
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/bookmyshow-clone.git
-   cd bookmyshow-clone
+   git clone https://github.com/Soaib-Shaikh/PR-Blog-Project_Node.js.git
    ```
 2. Install dependencies:
    ```bash
@@ -125,8 +124,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Acknowledgements
-
-- Inspired by the original BookMyShow platform.
-- TMDb API for movie data.
-- Bootstrap 5 for responsive design.
