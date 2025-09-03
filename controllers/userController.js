@@ -14,15 +14,15 @@ const User = require('../models/userSchema');
 const bcrypt = require('bcrypt');
 
 // Profile page
-exports.profilePage = async (req, res) => {
+module.exports.profilePage = async (req, res) => {
     try {
-        const user = await User.findById(req.session.userId).lean();
-        if (!user) return res.redirect('/login');
+        if (!req.isAuthenticated()) return res.redirect('/login');
 
-        res.render('pages/profile', { user });
-    } catch (err) {
-        console.error("Error loading profile:", err);
-        res.status(500).send("Server Error");
+        const user = req.user; // Passport user
+        return res.render('./pages/profile', { user });
+    } catch (error) {
+        console.error("Profile Page Error:", error);
+        return res.redirect('/blog');
     }
 };
 

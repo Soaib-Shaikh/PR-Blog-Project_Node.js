@@ -8,6 +8,7 @@ const app = express();
 const path = require('path');
 const router = require('./routers');
 const MongoStore = require('connect-mongo');
+const passport = require('./middlewares/passport');
 
 const port = process.env.port || 8081;
 
@@ -25,6 +26,10 @@ app.use(session({
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/',router);
 
