@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
-const { isAuth, allowUsers } = require("../middlewares/auth");
+const { isAuth } = require("../middlewares/auth");
 
-// ✅ Profile page
+// Profile Routes
 router.get("/profile", isAuth, userController.profilePage);
-
-// ✅ Edit profile form
 router.get("/profile/edit", isAuth, userController.editProfileForm);
-
-// ✅ Update profile
 router.post("/profile/edit", isAuth, userController.updateProfile);
+
+// ✅ POST request for Delete
+router.post("/profile/delete", isAuth, userController.deleteProfile);
 
 module.exports = router;

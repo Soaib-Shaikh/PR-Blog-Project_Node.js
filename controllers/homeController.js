@@ -41,7 +41,7 @@ module.exports.homePageWriter = async (req, res) => {
 
         return res.render('./pages/writer/writerHome', { user, posts });
     } catch (err) {
-        console.log("❌ Error loading writer home:", err);
+        console.log(err.message);
         res.status(500).send("Something went wrong");
     }
 };
@@ -129,17 +129,17 @@ module.exports.signupHandle = async (req, res) => {
 module.exports.logout = (req, res, next) => {
     req.logout((err) => {
         if (err) {
-            console.log("Logout Error:", err);
+            console.log(err.message);
             return next(err);
         }
 
         // Session destroy
         req.session.destroy((err) => {
             if (err) {
-                console.log("Session Destroy Error:", err);
+                console.log(err.message);
                 return next(err);
             }
-            console.log("User Logged Out Successfully");
+            console.log("User Logout Success.");
             return res.redirect("/login");
         });
     });
