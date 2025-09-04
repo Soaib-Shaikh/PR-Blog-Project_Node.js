@@ -15,6 +15,7 @@ const port = process.env.port || 8081;
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
 // serve uploaded images from public/uploads
 app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
