@@ -26,7 +26,7 @@ module.exports.editProfileForm = async (req, res) => {
         const user = await User.findById(req.user._id).lean();
         if (!user) return res.redirect('/login');
 
-        res.render('./pages/user/editProfile', { user });
+        res.render('./pages/editUser', { user });
     } catch (err) {
         console.error("Error loading edit profile form:", err);
         res.status(500).send("Server Error");
